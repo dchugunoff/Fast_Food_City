@@ -50,7 +50,8 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:text="1"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            android:imeOptions="actionNext"/>
 
         <EditText
             android:id="@+id/input_2"
@@ -66,7 +67,8 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:text="2"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            android:imeOptions="actionNext"/>
 
         <EditText
             android:id="@+id/input_3"
@@ -82,7 +84,8 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:text="3"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            android:imeOptions="actionNext"/>
 
         <EditText
             android:id="@+id/input_4"
@@ -98,7 +101,8 @@
             android:textSize="24sp"
             android:textStyle="bold"
             tools:text="4"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            android:imeOptions="actionNext"/>
 
 
     </LinearLayout>

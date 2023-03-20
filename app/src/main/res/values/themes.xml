@@ -21,7 +21,12 @@
     </style>
 
     <style name="RegistrationTextViewMedium">
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="styleRegNumber">
+        <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
 </resources>

@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/enterCode">
+    app:startDestination="@id/enterPhoneNumber">
 
     <fragment
         android:id="@+id/enterPhoneNumber"
         android:name="com.example.fastfoodcity.ui.EnterPhoneNumber"
         android:label="@string/phone_fragment_label"
-        tools:layout="@layout/fragment_enter_phone_number" />
+        tools:layout="@layout/fragment_enter_phone_number" >
+        <action
+            android:id="@+id/action_enterPhoneNumber_to_enterCode"
+            app:destination="@id/enterCode" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.fastfoodcity.ui.MenuFragment"

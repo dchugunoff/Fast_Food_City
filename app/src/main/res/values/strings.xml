@@ -10,4 +10,6 @@
     <string name="phone_fragment_label">Авторизация</string>
     <string name="menu_fragment_label">Меню</string>
     <string name="code_fragment_label">Подтверждение</string>
+    <string name="register_toast_enter_phone">Введите номер телефона</string>
+    <string name="international_number_ru">+7</string>
 </resources>

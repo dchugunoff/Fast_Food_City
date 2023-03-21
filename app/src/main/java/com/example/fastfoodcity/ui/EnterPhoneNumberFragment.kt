@@ -31,38 +31,7 @@ class EnterPhoneNumberFragment : Fragment() {
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
 
-    override fun onStart() {
-        super.onStart()
-        binding.nextBtn.setOnClickListener { sendCode() }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        phoneNumberEditText = binding.enterNumberPhoneInput
-        verificationCallbacks()
-    }
-
-    private fun sendCode() {
-        if (phoneNumberEditText.text.toString().isEmpty() ||
-            phoneNumberEditText.text.toString().length != 12) {
-            showToast(getString(R.string.register_toast_enter_phone))
-        } else {
-            authUser()
-        }
-    }
-
-    private fun authUser() {
-        val options = PhoneAuthOptions.newBuilder(AUTH)
-            .setPhoneNumber(phoneNumberEditText.text.toString())
-            .setTimeout(60L, TimeUnit.SECONDS)
-            .setActivity(activity as MainActivity)
-            .setCallbacks(callbacks)
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-    }
-
     /**
-     * verificationCallBacks():
      * Обрабатывает релузьтаты запроса.
      * [onVerificationComplited] - в случае, если Task [isSuccessful] значит что пользователь авторизован
      * и происходит навигация в фрагмент [menuFragment].
@@ -70,8 +39,9 @@ class EnterPhoneNumberFragment : Fragment() {
      * [onCodeSent] - запускается, когда было отправлено смс с кодом. Конструктор метода принимает [id] и [token]
      *
      */
-
-    private fun verificationCallbacks() {
+    override fun onStart() {
+        super.onStart()
+        phoneNumberEditText = binding.enterNumberPhoneInput
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 AUTH.signInWithCredential(credential).addOnCompleteListener {
@@ -93,7 +63,29 @@ class EnterPhoneNumberFragment : Fragment() {
                 navController.navigate(R.id.enterCode, bundle)
             }
         }
+        binding.nextBtn.setOnClickListener { sendCode() }
     }
+
+    private fun sendCode() {
+        if (phoneNumberEditText.text.toString().isEmpty() ||
+            phoneNumberEditText.text.toString().length != 12) {
+            showToast(getString(R.string.register_toast_enter_phone))
+        } else {
+            authUser()
+            findNavController().navigate(R.id.action_enterPhoneNumber_to_enterCode)
+        }
+    }
+
+    private fun authUser() {
+        val options = PhoneAuthOptions.newBuilder(AUTH)
+            .setPhoneNumber(phoneNumberEditText.text.toString())
+            .setTimeout(60L, TimeUnit.SECONDS)
+            .setActivity(activity as MainActivity)
+            .setCallbacks(callbacks)
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
+    }
+
 
 
     override fun onCreateView(

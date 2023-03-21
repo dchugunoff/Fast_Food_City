@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EnterPhoneNumber">
+    tools:context=".ui.EnterPhoneNumberFragment">
 
     <TextView
         android:id="@+id/tv_greeting_registration"
@@ -37,24 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_enter_number">
 
-        <TextView
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="right|center"
-            style="@style/styleRegNumber"
-            android:layout_marginEnd="8dp"
-            android:text="@string/international_number_ru" />
-
         <EditText
             android:id="@+id/enterNumberPhoneInput"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:maxLength="10"
+            android:gravity="center"
+            android:maxLength="12"
             android:maxLines="1"
             android:background="#FFFFFF"
-            android:hint="000 000 0000"
+            android:hint="+7 000 000 0000"
             style="@style/styleRegNumber" />
     </LinearLayout>
 

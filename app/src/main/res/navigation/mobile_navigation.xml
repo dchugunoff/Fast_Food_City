@@ -3,16 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/enterPhoneNumber">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/enterPhoneNumber"
-        android:name="com.example.fastfoodcity.ui.EnterPhoneNumber"
+        android:name="com.example.fastfoodcity.ui.EnterPhoneNumberFragment"
         android:label="@string/phone_fragment_label"
         tools:layout="@layout/fragment_enter_phone_number" >
         <action
             android:id="@+id/action_enterPhoneNumber_to_enterCode"
             app:destination="@id/enterCode" />
+        <action
+            android:id="@+id/action_enterPhoneNumber_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -21,7 +24,11 @@
         tools:layout="@layout/fragment_menu" />
     <fragment
         android:id="@+id/enterCode"
-        android:name="com.example.fastfoodcity.ui.EnterCode"
+        android:name="com.example.fastfoodcity.ui.EnterCodeFragment"
         android:label="@string/code_fragment_label"
-        tools:layout="@layout/fragment_enter_code" />
+        tools:layout="@layout/fragment_enter_code" >
+        <action
+            android:id="@+id/action_enterCode_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>

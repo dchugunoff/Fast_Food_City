@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fastfoodcity.databinding.FragmentMenuBinding
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MenuFragment : Fragment() {
@@ -23,5 +24,10 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
 
 }

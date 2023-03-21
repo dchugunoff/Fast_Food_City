@@ -16,12 +16,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
 
 
-class EnterCodeFragment : Fragment() {
+class EnterCodeFragment(val id: String) : Fragment() {
 
     private var _binding: FragmentEnterCodeBinding? = null
     private val binding get() = _binding!!
-    private var id: String? = null
-    private var phoneNumber: String? = null
+
+
 
 
     override fun onCreateView(
@@ -37,8 +37,7 @@ class EnterCodeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        id = arguments?.getString("id")
-        phoneNumber = arguments?.getString("phoneNumber")
+        var id = arguments?.getString("id")
 
         binding.verifyCode.addTextChangedListener(AppTextWatcher{
             val inputCode = binding.verifyCode.text.toString()
@@ -51,12 +50,12 @@ class EnterCodeFragment : Fragment() {
 
     private fun enterCode() {
         val code = binding.verifyCode.text.toString()
-        val credential = PhoneAuthProvider.getCredential(id!!, code)
+        val credential = PhoneAuthProvider.getCredential(id, code)
         AUTH.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
                 showToast("Добро пожаловать!")
-                findNavController().navigate(R.id.action_enterCode_to_menuFragment)
-            } else showToast(it.exception?.message.toString())
+                findNavController().navigate(R.id.menuFragment)
+            } else showToast("id = $id")
         }
 
 

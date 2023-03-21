@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.MainActivity
@@ -47,7 +48,6 @@ class EnterPhoneNumberFragment : Fragment() {
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
             authUser()
-            findNavController().navigate(R.id.action_enterPhoneNumber_to_enterCode)
         }
     }
 
@@ -87,12 +87,10 @@ class EnterPhoneNumberFragment : Fragment() {
             }
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
-                val bundle = Bundle()
-                bundle.putString("phoneNumber", phoneNumberEditText.text.toString())
+                var bundle = Bundle()
                 bundle.putString("id", id)
-
-                val enterCodeFragment = EnterCodeFragment()
-                enterCodeFragment.arguments = bundle
+                val navController = findNavController()
+                navController.navigate(R.id.enterCode, bundle)
             }
         }
     }

@@ -1,21 +1,21 @@
 package com.example.fastfoodcity.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.EditText
-import androidx.core.os.bundleOf
-import androidx.navigation.NavController
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.MainActivity
 import com.example.fastfoodcity.R
 import com.example.fastfoodcity.databinding.FragmentEnterPhoneNumberBinding
 import com.example.fastfoodcity.utilites.AUTH
+import com.example.fastfoodcity.utilites.AppTextWatcher
 import com.example.fastfoodcity.utilites.showToast
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
@@ -29,6 +29,8 @@ class EnterPhoneNumberFragment : Fragment() {
 
     private lateinit var phoneNumberEditText: EditText
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var animation: Animation
+
 
 
     /**
@@ -41,7 +43,12 @@ class EnterPhoneNumberFragment : Fragment() {
      */
     override fun onStart() {
         super.onStart()
+        animation = AnimationUtils.loadAnimation(context, R.anim.animation_reg_nextbtn)
         phoneNumberEditText = binding.enterNumberPhoneInput
+        binding.nextBtn.visibility = View.GONE
+        buttonAnimation()
+        binding.nextBtn.setOnClickListener { sendCode() }
+
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 AUTH.signInWithCredential(credential).addOnCompleteListener {
@@ -63,12 +70,12 @@ class EnterPhoneNumberFragment : Fragment() {
                 navController.navigate(R.id.enterCode, bundle)
             }
         }
-        binding.nextBtn.setOnClickListener { sendCode() }
     }
+
 
     private fun sendCode() {
         if (phoneNumberEditText.text.toString().isEmpty() ||
-            phoneNumberEditText.text.toString().length != 12) {
+            phoneNumberEditText.text.toString().length != 10) {
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
             authUser()
@@ -78,7 +85,7 @@ class EnterPhoneNumberFragment : Fragment() {
 
     private fun authUser() {
         val options = PhoneAuthOptions.newBuilder(AUTH)
-            .setPhoneNumber(phoneNumberEditText.text.toString())
+            .setPhoneNumber("+1" + phoneNumberEditText.text.toString())
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(activity as MainActivity)
             .setCallbacks(callbacks)
@@ -95,4 +102,18 @@ class EnterPhoneNumberFragment : Fragment() {
         _binding = FragmentEnterPhoneNumberBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    private fun buttonAnimation() {
+        binding.enterNumberPhoneInput.addTextChangedListener(AppTextWatcher {
+            val inputPhone = binding.enterNumberPhoneInput.text.toString()
+            if (inputPhone.length == 10) {
+                binding.nextBtn.visibility = View.VISIBLE
+                binding.nextBtn.startAnimation(animation)
+            } else {
+                binding.nextBtn.visibility = View.GONE // скрыть кнопку, если длина введенного текста меньше или равна 0
+            }
+        })
+    }
+
+
 }

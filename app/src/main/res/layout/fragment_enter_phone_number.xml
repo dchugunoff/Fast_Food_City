@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EnterPhoneNumberFragment">
+    tools:context=".ui.EnterPhoneNumberFragment"
+    android:layout_margin="16dp">
 
     <TextView
         android:id="@+id/tv_greeting_registration"
         style="@style/RegistrationTextViewLarge"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/greeting_registration"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/tv_enter_number"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,31 +24,42 @@
         style="@style/RegistrationTextViewMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/tv_enter_number"
-        app:layout_constraintStart_toStartOf="@+id/tv_greeting_registration"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/tv_enter_number_label"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_greeting_registration" />
+
+
 
     <LinearLayout
         android:id="@+id/numberPhoneLinearLayout"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_enter_number">
 
-        <EditText
-            android:id="@+id/enterNumberPhoneInput"
-            android:layout_width="150dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:maxLength="12"
+            android:gravity="right|center"
+            style="@style/styleRegNumber"
+            android:layout_marginEnd="8dp"
+            android:text="@string/international_number_ru" />
+
+        <EditText
+            android:id="@+id/enterNumberPhoneInput"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLength="10"
             android:maxLines="1"
             android:background="#FFFFFF"
-            android:hint="+7 000 000 0000"
+            android:hint="9377118927"
             style="@style/styleRegNumber" />
     </LinearLayout>
 
@@ -56,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/next_btn"
+        style="@style/styleRegNextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberPhoneLinearLayout"

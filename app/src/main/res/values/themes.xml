@@ -15,18 +15,25 @@
     </style>
 
     <style name="RegistrationTextViewLarge">
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="RegistrationTextViewMedium">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="styleRegNumber">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="styleRegNextButton">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 </resources>

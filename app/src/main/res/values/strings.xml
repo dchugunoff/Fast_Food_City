@@ -4,8 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv_enter_number">Укажи свой телефон</string>
     <string name="tv_enter_number_label">Чтобы войти в профиль и получать персональные предложения, участвовать в акциях и многое другое</string>
-    <string name="code_verification_tv_large">Код\nподтверждения</string>
-    <string name="code_verification_tv_medium">Введите 4-х значный код, который мы отправили вам на номер.</string>
+    <string name="code_verification_tv_large">Введи код из SMS</string>
+    <string name="code_verification_tv_medium">Код отправлен на ваш номер</string>
     <string name="next_btn">Получить код в SMS</string>
     <string name="phone_fragment_label">Авторизация</string>
     <string name="menu_fragment_label">Меню</string>

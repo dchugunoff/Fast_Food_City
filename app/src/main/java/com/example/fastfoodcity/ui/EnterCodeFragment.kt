@@ -61,8 +61,11 @@ class EnterCodeFragment: Fragment() {
         val credential = PhoneAuthProvider.getCredential(id.toString(), code)
         AUTH.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
+                val navController = findNavController()
                 showToast("Добро пожаловать!")
-                findNavController().navigate(R.id.menuFragment)
+                navController.popBackStack(R.id.menuFragment, false)
+                navController.navigate(R.id.menuFragment)
+
             } else showToast("Ошибка")
         }
 

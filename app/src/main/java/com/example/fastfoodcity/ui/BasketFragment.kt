@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fastfoodcity.R
-import com.example.fastfoodcity.databinding.FragmentEnterCodeBinding
+import com.example.fastfoodcity.databinding.FragmentBasketBinding
 
+class BasketFragment : Fragment() {
 
-class EnterCode : Fragment() {
-
-    private var _binding: FragmentEnterCodeBinding? = null
+    private var _binding: FragmentBasketBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,8 +17,9 @@ class EnterCode : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentEnterCodeBinding.inflate(inflater, container, false)
+        _binding = FragmentBasketBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
 }

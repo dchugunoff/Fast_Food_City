@@ -5,106 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EnterCode">
+    tools:context=".ui.EnterCodeFragment"
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/tv_verification"
         style="@style/RegistrationTextViewLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="40dp"
         android:text="@string/code_verification_tv_large"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_verification_please"
+        style="@style/EnterCodeTextViewMedium"
         android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="@string/code_verification_tv_medium"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_verification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_verification" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/verifyCode"
+        style="@style/styleRegNumber"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/tv_verification_please">
+        android:hint="123456"
+        android:maxLength="6"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verification_please" />
 
-        <EditText
-            android:id="@+id/input_1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/backgroundbox_code_verification"
-            android:gravity="center"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="1"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="1"
-            tools:ignore="LabelFor"
-            android:imeOptions="actionNext"/>
-
-        <EditText
-            android:id="@+id/input_2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/backgroundbox_code_verification"
-            android:gravity="center"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="1"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="2"
-            tools:ignore="LabelFor"
-            android:imeOptions="actionNext"/>
-
-        <EditText
-            android:id="@+id/input_3"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/backgroundbox_code_verification"
-            android:gravity="center"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="1"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="3"
-            tools:ignore="LabelFor"
-            android:imeOptions="actionNext"/>
-
-        <EditText
-            android:id="@+id/input_4"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/backgroundbox_code_verification"
-            android:gravity="center"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="1"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="4"
-            tools:ignore="LabelFor"
-            android:imeOptions="actionNext"/>
-
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

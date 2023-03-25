@@ -1,15 +1,18 @@
 package com.example.fastfoodcity.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.R
 import com.example.fastfoodcity.databinding.FragmentEnterCodeBinding
 import com.example.fastfoodcity.utilites.AUTH
 import com.example.fastfoodcity.utilites.AppTextWatcher
+import com.example.fastfoodcity.utilites.hideKeyboard
 import com.example.fastfoodcity.utilites.showToast
 import com.google.firebase.auth.PhoneAuthProvider
 
@@ -61,6 +64,7 @@ class EnterCodeFragment: Fragment() {
         val credential = PhoneAuthProvider.getCredential(id.toString(), code)
         AUTH.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
+                hideKeyboard(requireContext(), requireView())
                 val navController = findNavController()
                 showToast("Добро пожаловать!")
                 navController.popBackStack(R.id.menuFragment, false)
@@ -69,6 +73,6 @@ class EnterCodeFragment: Fragment() {
             } else showToast("Ошибка")
         }
 
-
     }
+
 }

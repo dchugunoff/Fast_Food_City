@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/menuFragment"
+        android:icon="@drawable/baseline_restaurant_menu_24"
+        android:title="@string/menu_fragment_label"/>
+    <item
+        android:id="@id/mapFragment"
+        android:icon="@drawable/map_marker"
+        android:title="@string/map_fragment_label"/>
+    <item
+        android:id="@id/basketFragment"
+        android:icon="@drawable/baseline_shopping_basket_24"
+        android:title="@string/basket_fragment_label"/>
+
+</menu>

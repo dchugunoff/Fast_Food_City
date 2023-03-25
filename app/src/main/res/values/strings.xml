@@ -12,4 +12,6 @@
     <string name="code_fragment_label">Подтверждение</string>
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="international_number_ru">+7</string>
+    <string name="map_fragment_label">Карта</string>
+    <string name="basket_fragment_label">Корзина</string>
 </resources>

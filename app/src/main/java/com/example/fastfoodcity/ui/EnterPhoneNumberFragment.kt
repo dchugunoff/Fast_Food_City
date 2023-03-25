@@ -12,9 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.MainActivity
 import com.example.fastfoodcity.R
 import com.example.fastfoodcity.databinding.FragmentEnterPhoneNumberBinding
-import com.example.fastfoodcity.utilites.AUTH
-import com.example.fastfoodcity.utilites.AppTextWatcher
-import com.example.fastfoodcity.utilites.showToast
+import com.example.fastfoodcity.utilites.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
@@ -78,6 +77,7 @@ class EnterPhoneNumberFragment : Fragment() {
             phoneNumberEditText.text.toString().length != 10) {
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
+            hideKeyboard(requireContext(), requireView())
             authUser()
             findNavController().navigate(R.id.action_enterPhoneNumber_to_enterCode)
         }
@@ -110,7 +110,7 @@ class EnterPhoneNumberFragment : Fragment() {
                 binding.nextBtn.visibility = View.VISIBLE
                 binding.nextBtn.startAnimation(animation)
             } else {
-                binding.nextBtn.visibility = View.GONE // скрыть кнопку, если длина введенного текста меньше или равна 0
+                binding.nextBtn.visibility = View.GONE // скрыть кнопку, если длина введенного текста меньше 10 символов
             }
         })
     }

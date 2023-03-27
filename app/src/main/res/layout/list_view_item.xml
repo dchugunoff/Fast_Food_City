@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="food"
+            type="com.example.fastfoodcity.network.Food" />
+        <variable
+            name="clickListener"
+            type="com.example.fastfoodcity.adapter.FoodListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:id="@+id/card_food"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="8dp"
+            android:src="@{food.imgSrcUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/item_burger_001" />
+
+        <TextView
+            android:id="@+id/card_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="italic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Бургер Чили Чиз От души душевно в душу" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

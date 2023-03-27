@@ -85,7 +85,7 @@ class EnterPhoneNumberFragment : Fragment() {
 
     private fun authUser() {
         val options = PhoneAuthOptions.newBuilder(AUTH)
-            .setPhoneNumber("+7" + phoneNumberEditText.text.toString())
+            .setPhoneNumber("+1" + phoneNumberEditText.text.toString())
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(activity as MainActivity)
             .setCallbacks(callbacks)

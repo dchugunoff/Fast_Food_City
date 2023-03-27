@@ -62,5 +62,13 @@ dependencies {
     ksp "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
+    // Moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+
+    // Retrofit with Moshi Converter
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    //Coil library
+    implementation "io.coil-kt:coil:1.1.1"
+
 
 }

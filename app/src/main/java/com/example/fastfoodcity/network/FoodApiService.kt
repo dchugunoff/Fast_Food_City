@@ -32,8 +32,8 @@ private val retrofit = Retrofit.Builder()
  * suspend - означает, что она может приостанавливать свое выполнение без блокировки потока во время ожидания ответа от сервера.
  */
 interface FoodApiService {
-    @GET("getproducts")
-    suspend fun getItemList(): List<Food>
+    @GET("getproducts/")
+    suspend fun getFoodList(): List<Food>
 }
 
 /**

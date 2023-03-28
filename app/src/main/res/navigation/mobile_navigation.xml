@@ -21,7 +21,11 @@
         android:id="@+id/menuFragment"
         android:name="com.example.fastfoodcity.ui.MenuFragment"
         android:label="@string/menu_fragment_label"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/enterCode"
         android:name="com.example.fastfoodcity.ui.EnterCodeFragment"
@@ -41,4 +45,8 @@
         android:name="com.example.fastfoodcity.ui.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.example.fastfoodcity.ui.FoodDetailFragment"
+        android:label="FoodDetailFragment" />
 </navigation>

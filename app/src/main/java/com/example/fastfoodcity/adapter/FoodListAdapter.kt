@@ -24,8 +24,8 @@ class FoodListAdapter(val clickListener: FoodListener) :
     }
 
     class FoodViewHolder(
-        var binding: ListViewItemBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+        val binding: ListViewItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(clickListener: FoodListener, food: Food) {
             binding.food = food
             binding.clickListener = clickListener

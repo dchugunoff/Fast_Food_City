@@ -8,6 +8,6 @@ import com.squareup.moshi.Json
 data class Food(
     val name: String,
     val description: String,
-    val price: Int,
+    val price: String,
     @Json(name = "img") val imgSrcUrl: String
 )

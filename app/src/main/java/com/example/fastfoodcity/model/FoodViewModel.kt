@@ -1,5 +1,6 @@
 package com.example.fastfoodcity.model
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,21 +16,27 @@ class FoodViewModel : ViewModel() {
     val status: LiveData<FoodApiStatus> = _status
 
     private val _foods = MutableLiveData<List<Food>>()
-    val items: LiveData<List<Food>> = _foods
+    val foods: LiveData<List<Food>> = _foods
 
     private val _food = MutableLiveData<Food>()
-    val item: LiveData<Food> = _food
+    val food: LiveData<Food> = _food
 
-    fun getItemList() {
+    fun getFoodList() {
         viewModelScope.launch {
             _status.value = FoodApiStatus.LOADING
             try {
-                _foods.value = ItemApi.retrofitService.getItemList()
+                _foods.value = ItemApi.retrofitService.getFoodList()
                 _status.value = FoodApiStatus.DONE
+                Log.d("FoodViewModel", "Got food list: ${_foods.value}")
             } catch (e: Exception) {
                 _foods.value = emptyList()
                 _status.value = FoodApiStatus.ERROR
+                Log.e("FoodViewModel", "Error getting food list: ${e.message}")
             }
         }
+    }
+
+    fun onFoodClicked(food: Food) {
+        _food.value = food
     }
 }

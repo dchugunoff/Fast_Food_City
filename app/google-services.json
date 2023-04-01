@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "920820753760",
+    "project_id": "fast-food-city",
+    "storage_bucket": "fast-food-city.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920820753760:android:ce276176d21cf12e416a05",
+        "android_client_info": {
+          "package_name": "com.example.fastfoodcity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920820753760-nevd3813blhsjk5tddalbmoqqufeqtpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCK9Kwrk71XndqaMWP0C7lSU7IaiQOe-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920820753760-nevd3813blhsjk5tddalbmoqqufeqtpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

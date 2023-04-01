@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.R
 import com.example.fastfoodcity.databinding.FragmentEnterCodeBinding
-import com.example.fastfoodcity.utilites.AUTH
-import com.example.fastfoodcity.utilites.AppTextWatcher
-import com.example.fastfoodcity.utilites.hideKeyboard
-import com.example.fastfoodcity.utilites.showToast
+import com.example.fastfoodcity.utilites.*
 import com.google.firebase.auth.PhoneAuthProvider
 
 
@@ -62,15 +59,23 @@ class EnterCodeFragment: Fragment() {
     private fun enterCode() {
         val code = binding.verifyCode.text.toString()
         val credential = PhoneAuthProvider.getCredential(id.toString(), code)
-        AUTH.signInWithCredential(credential).addOnCompleteListener {
-            if (it.isSuccessful) {
-                hideKeyboard(requireContext(), requireView())
-                val navController = findNavController()
-                showToast("Добро пожаловать!")
-                navController.popBackStack(R.id.menuFragment, false)
-                navController.navigate(R.id.menuFragment)
+        val navController = findNavController()
+        AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val uid = AUTH.currentUser?.uid.toString()
+                val dateMap = mutableMapOf<String, Any>()
+                dateMap[CHILD_ID] = uid
 
-            } else showToast("Ошибка")
+                REF_DATABASE_ROOT.child(NODE_USERS).child(uid).updateChildren(dateMap)
+                    .addOnCompleteListener { task2 ->
+                        if (task2.isSuccessful) {
+                            hideKeyboard(requireContext(), requireView())
+                            showToast("Добро пожаловать!")
+                            navController.popBackStack(R.id.menuFragment, false)
+                            navController.navigate(R.id.menuFragment)
+                        } else showToast(task2.exception?.message.toString())
+                    }
+            } else showToast(task.exception?.message.toString())
         }
 
     }

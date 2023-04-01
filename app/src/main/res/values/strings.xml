@@ -13,5 +13,8 @@
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="international_number_ru">+7</string>
     <string name="map_fragment_label">Карта</string>
-    <string name="basket_fragment_label">Корзина</string>
+    <string name="cart_fragment_label">Корзина</string>
+    <string name="food_price">%s ₽</string>
+    <string name="add_to_cart_btn">В корзину %s ₽</string>
+    <string name="tv_description">Описание</string>
 </resources>

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fastfoodcity.databinding.FragmentBasketBinding
 
-class BasketFragment : Fragment() {
+class CartFragment : Fragment() {
 
     private var _binding: FragmentBasketBinding? = null
     private val binding get() = _binding!!

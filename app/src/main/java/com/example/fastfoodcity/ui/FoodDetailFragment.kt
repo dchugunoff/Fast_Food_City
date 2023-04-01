@@ -9,9 +9,10 @@ import androidx.fragment.app.activityViewModels
 import com.example.fastfoodcity.R
 import com.example.fastfoodcity.databinding.FragmentFoodDetailBinding
 import com.example.fastfoodcity.model.FoodViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class FoodDetailFragment : Fragment() {
+class FoodDetailFragment : BottomSheetDialogFragment() {
 
     private val viewModel: FoodViewModel by activityViewModels()
 

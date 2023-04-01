@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.example.fastfoodcity.ui.BasketFragment"
+        android:name="com.example.fastfoodcity.ui.CartFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" />
     <fragment
@@ -45,7 +45,7 @@
         android:name="com.example.fastfoodcity.ui.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
-    <fragment
+    <dialog
         android:id="@+id/foodDetailFragment"
         android:name="com.example.fastfoodcity.ui.FoodDetailFragment"
         android:label="FoodDetailFragment" />

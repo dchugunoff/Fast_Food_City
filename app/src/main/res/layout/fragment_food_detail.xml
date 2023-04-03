@@ -9,79 +9,87 @@
             type="com.example.fastfoodcity.model.FoodViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/container_root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
-        <ImageView
-            android:id="@+id/img_food_detail"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:imageUrl="@{viewModel.food.imgSrcUrl}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/item_burger_001" />
-
-        <TextView
-            android:id="@+id/name_food_detail"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="64dp"
-            android:fontFamily="@font/roboto_black"
-            android:text="@{viewModel.food.name}"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_food_detail"
-            tools:text="воппер" />
+            android:layout_height="match_parent"
+            app:behavior_hideable="false"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-        <TextView
-            android:id="@+id/description_tag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/roboto_black"
-            android:text="@string/tv_description"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/name_food_detail"
-            app:layout_constraintTop_toBottomOf="@+id/name_food_detail" />
+            <ImageView
+                android:id="@+id/img_food_detail"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:imageUrl="@{viewModel.food.imgSrcUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/item_burger_001" />
 
-        <TextView
-            android:id="@+id/description_food_detail"
-            android:text="@{viewModel.food.description}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_tag"
-            tools:text="Воппер - это вкуснейшая приготовленная на огне 100%." />
+            <TextView
+                android:id="@+id/name_food_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="64dp"
+                android:fontFamily="@font/roboto_black"
+                android:text="@{viewModel.food.name}"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_food_detail"
+                tools:text="воппер" />
 
-        <Button
-            android:id="@+id/btn_add_to_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_food_detail"
-            android:fontFamily="@font/roboto"
-            android:textSize="16sp"
-            tools:text="В корзину 199р."
-            android:text="@{@string/add_to_cart_btn(viewModel.food.price)}"/>
+            <TextView
+                android:id="@+id/description_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_black"
+                android:text="@string/tv_description"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@+id/name_food_detail"
+                app:layout_constraintTop_toBottomOf="@+id/name_food_detail" />
 
+            <TextView
+                android:id="@+id/description_food_detail"
+                android:text="@{viewModel.food.description}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_tag"
+                tools:text="Воппер - это вкуснейшая приготовленная на огне 100%." />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_add_to_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_food_detail"
+                android:fontFamily="@font/roboto"
+                android:textSize="16sp"
+                tools:text="В корзину 199р."
+                android:text="@{@string/add_to_cart_btn(viewModel.food.price)}"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

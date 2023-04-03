@@ -17,4 +17,5 @@
     <string name="food_price">%s ₽</string>
     <string name="add_to_cart_btn">В корзину %s ₽</string>
     <string name="tv_description">Описание</string>
+    <string name="burger_test_name">Бургер Чили Чиз</string>
 </resources>

@@ -39,7 +39,7 @@
         android:id="@+id/basketFragment"
         android:name="com.example.fastfoodcity.ui.CartFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.fastfoodcity.ui.MapFragment"

@@ -15,7 +15,10 @@
     <string name="map_fragment_label">Карта</string>
     <string name="cart_fragment_label">Корзина</string>
     <string name="food_price">%s ₽</string>
+    <string name="price_with_currency">%d ₽</string>
     <string name="add_to_cart_btn">В корзину %s ₽</string>
     <string name="tv_description">Описание</string>
     <string name="burger_test_name">Бургер Чили Чиз</string>
+    <string name="clear_tv_button">Очистить</string>
+    <string name="text_order_price">Сумма заказа</string>
 </resources>

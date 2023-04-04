@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.fastfoodcity.model.CartViewModel" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cart_tv"
             android:fontFamily="@font/roboto"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_recycler_view"
@@ -73,13 +80,14 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button
+            android:id="@+id/payment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
-            tools:text="Оплатить заказ на 537 ₽"/>
+            tools:text="@string/text_payment_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

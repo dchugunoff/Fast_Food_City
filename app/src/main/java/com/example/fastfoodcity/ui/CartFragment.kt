@@ -22,6 +22,7 @@ class CartFragment : Fragment() {
 
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +39,7 @@ class CartFragment : Fragment() {
         // Наблюдение за изменениями элементов корзины LiveData и обновление адаптера
         cartViewModel.cartItem.observe(viewLifecycleOwner) { cartItems ->
             cartAdapter.cartItems = cartItems
+            isEmpty()
             cartAdapter.notifyDataSetChanged()
         }
 
@@ -46,7 +48,11 @@ class CartFragment : Fragment() {
             binding.paymentButton.text = resources.getString(R.string.text_payment_button, summaryCost)
         }
 
-
+        binding.clearButton.setOnClickListener {
+            cartViewModel.clearCart()
+            isEmpty()
+        }
+        isEmpty()
         return binding.root
     }
 
@@ -55,4 +61,19 @@ class CartFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+    private fun isEmpty() {
+        if (cartViewModel.isEmpty()) {
+            binding.cartTv.visibility = View.GONE
+            binding.clearButton.visibility = View.GONE
+            binding.cartRecyclerView.visibility = View.GONE
+            binding.linearLayoutCompat.visibility = View.GONE
+            binding.paymentButton.visibility = View.GONE
+            binding.tvIsEmpty.visibility = View.VISIBLE
+        } else {
+            binding.tvIsEmpty.visibility = View.GONE
+        }
+    }
+
 }

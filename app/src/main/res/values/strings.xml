@@ -22,4 +22,10 @@
     <string name="clear_tv_button">Очистить</string>
     <string name="text_order_price">Сумма заказа</string>
     <string name="text_payment_button">Оплатить заказ на %d ₽</string>
+    <string name="tv_basket_is_empty">Корзина пуста</string>
+    <string name="hind_code">123456</string>
+    <string name="hint_number">9377118927</string>
+    <string name="title_clear_dialog">Очистить корзину?</string>
+    <string name="supporting_text_clear_dialog">Мы удалим все содержимое вашей корзины</string>
+    <string name="cancel">Отмена</string>
 </resources>

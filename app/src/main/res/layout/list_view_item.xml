@@ -15,60 +15,56 @@
     <com.google.android.material.card.MaterialCardView
 
         android:id="@+id/card_food"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardElevation="2dp"
-        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="20dp"
         android:onClick="@{() -> clickListener.onClick(food)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/image_view"
                 android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_margin="8dp"
-                app:imageUrl="@{food.imgSrcUrl}"
+                android:layout_height="110dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:scaleType="fitXY"
-                tools:src="@drawable/item_burger_001"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:imageUrl="@{food.imgSrcUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/item_burger_001" />
 
             <TextView
                 android:id="@+id/tv_item_name"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/roboto"
-                android:maxLines="3"
+                style="@style/ListItemStyleName"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:text="@{food.name}"
-                android:textColor="@color/black"
-                android:textSize="22sp"
+                android:maxLines="2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/image_view"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view"
                 tools:text="@string/burger_test_name" />
 
             <TextView
                 android:id="@+id/item_count"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_rounded_corners"
-                android:gravity="center"
+                style="@style/ListItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="8dp"
                 android:text="@{@string/food_price(food.price)}"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_item_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
-                tools:text="199 ₽"/>
+                tools:text="199 ₽" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

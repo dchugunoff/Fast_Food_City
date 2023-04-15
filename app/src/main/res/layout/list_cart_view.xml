@@ -12,82 +12,93 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cart_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="8dp">
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/corner_radius_cart"
+        android:elevation="4dp">
 
         <ImageView
             android:id="@+id/foodImage"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="10dp"
+            app:imageUrl="@{cartItem.food.imgSrcUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/item_burger_001"
-            app:imageUrl="@{cartItem.food.imgSrcUrl}"/>
+            tools:src="@drawable/item_burger_001" />
 
         <TextView
             android:id="@+id/foodName"
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:fontFamily="@font/roboto"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_light"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@{cartItem.food.name}"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/foodImage"
-            app:layout_constraintTop_toTopOf="@+id/foodImage"
-            tools:text="@string/burger_test_name"
-            android:text="@{cartItem.food.name}"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/burger_test_name" />
 
         <TextView
             android:id="@+id/foodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto_black"
-            android:textColor="@color/black"
+            android:text="@{String.format(String.format(`%s ₽`, cartItem.totalCost))}"
+            android:textColor="@color/dark_green"
+            android:fontFamily="@font/poppins_light"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/foodName"
             app:layout_constraintTop_toBottomOf="@+id/foodName"
-            tools:text="199p."
-            android:text="@{String.format(String.format(`%s ₽`, cartItem.totalCost))}"/>
+            tools:text="199p." />
 
         <LinearLayout
             android:id="@+id/cart_recycler_linear_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/foodImage"
-            app:layout_constraintStart_toEndOf="@+id/foodName"
-            app:layout_constraintTop_toTopOf="@+id/foodImage">
+            app:layout_constraintStart_toStartOf="@+id/foodPrice"
+            app:layout_constraintTop_toBottomOf="@+id/foodPrice"
+            android:padding="6dp">
 
             <ImageButton
                 android:id="@+id/minus_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_minus"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                android:background="@drawable/minus_button_selector"
+                android:elevation="2dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="2dp"/>
 
             <TextView
                 android:id="@+id/foodQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/poppins_light"
+                android:text="@{Integer.toString(cartItem.quantity)}"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="10"
-                android:fontFamily="@font/roboto"
-                android:text="@{Integer.toString(cartItem.quantity)}"/>
+                android:textSize="15sp"
+                tools:text="10"/>
 
             <ImageButton
                 android:id="@+id/plus_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_plus"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                android:background="@drawable/plus_button_selector"
+                android:elevation="2dp"
+                android:layout_marginStart="10dp"/>
 
         </LinearLayout>
 

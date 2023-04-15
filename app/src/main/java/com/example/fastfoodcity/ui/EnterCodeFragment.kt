@@ -1,9 +1,17 @@
 package com.example.fastfoodcity.ui
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.CycleInterpolator
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.fastfoodcity.R
@@ -69,11 +77,18 @@ class EnterCodeFragment: Fragment() {
                         if (task2.isSuccessful) {
                             hideKeyboard(requireContext(), requireView())
                             showToast("Добро пожаловать!")
-                            navController.popBackStack(R.id.menuFragment, false)
-                            navController.navigate(R.id.menuFragment)
+                            navController.apply {
+                                popBackStack(R.id.enterPhoneNumber, true)
+                                popBackStack(R.id.enterCode, true)
+                                navigate(R.id.menuFragment)
+                            }
                         } else showToast(task2.exception?.message.toString())
                     }
-            } else showToast(task.exception?.message.toString())
+            } else {
+                showToast("Неправильный код подтверждения. Попробуйте снова")
+                binding.verifyCode.startAnimation(AnimationUtils.loadAnimation(context, R.anim.animation_error_code))
+                binding.verifyCode.setText("")
+            }
         }
 
     }

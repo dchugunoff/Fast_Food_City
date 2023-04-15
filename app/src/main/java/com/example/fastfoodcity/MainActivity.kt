@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var navController: NavController
+    init {
+        initFirebase()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 else -> navView.visibility = View.VISIBLE
             }
         }
+
+        if (AUTH.currentUser == null) {
+            navController.popBackStack(R.id.menuFragment, true)
+        }
         initFunc()
         initAutorisation()
     }
@@ -53,6 +60,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun initAutorisation() {
         if (AUTH.currentUser != null) {
+            navController.popBackStack(R.id.enterPhoneNumber, true)
+            navController.popBackStack(R.id.enterCode, true)
             navController.navigate(R.id.menuFragment)
         } else {
             navController.navigate(R.id.enterPhoneNumber)
